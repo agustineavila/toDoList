@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TODO list</title>
+	<style>
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+		color: gray;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 2rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+/* demo */
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  background-color:#222222;
+}
+
+.lista {
+	font-size: 40px;
+	color: gray;
+	list-style: none;
+}
+  .input-submit {
+     color: lightgray; 
+     font-size: 17px;
+     background: gray;
+     cursor: pointer;
+     padding: 10px;
+     padding-left: 30px;
+     padding-right: 30px;
+    
+    &:hover {
+       @include box-shadow(0 1px 1px 1px rgba(#aaa, 0.6)); 
+    }
+  }
+  .aclaracion {
+    color: gray;
+    font-size: 17px;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+  }
+  .aclaracion:hover {
+    font-size: 25px;
+  }
+	</style>
+</head>
+<body>
+	<form action="" id="todo-form">
+	<div class="form__group field">
+		<input type="text" autocomplete="off" id="todo" class="form__field" placeholder="Tarea" name="name" required/>
+		<input type="submit" value="Agregar Tarea" class="input-submit">
+	</div>
+	</form>	 
+	<ul id="todo-list">
+
+	</ul>
+  <span class="aclaracion">
+    *<i>para borrar un elemento hacer click sobre el mismo</i>
+  </span>
+</body>
+<script src="main.js">
+</script>
+</html>
